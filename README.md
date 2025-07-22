@@ -5,4 +5,6 @@
 ## Установка библиотек
 
 Установите необходимые зависимости с помощью команды:
-``` pip install -r requirements.txt '''
+```
+pip install -r requirements.txt
+end'''

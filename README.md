@@ -4,10 +4,10 @@
 
 ## Установка библиотек
 
-Загрузим библиотеки для работы с виртуальным окружением
+Создадим и активируем виртуальное окружение командами
 ```
-sudo dnf update
-sudo dnf install python3 python3-pip python3-virtualenv
+python3 -m venv venv
+source venv/bin/activate
 ```
 
 Установите необходимые зависимости с помощью команды:

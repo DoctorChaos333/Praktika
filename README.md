@@ -2,8 +2,7 @@
 
 Написание сценариев на robot-framework.
 
-## 1) Установка библиотек
+## Установка библиотек
 
 Установите необходимые зависимости с помощью команды:
-```bash
-pip install -r requirements.txt"""
+``` pip install -r requirements.txt '''

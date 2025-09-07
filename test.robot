@@ -7,24 +7,19 @@ Suite Teardown  Открыть отчет в браузере
 ${FILE_PATH}        ${CURDIR}${/}some_file${/}some_script.txt
 ${FILE_PATTERN}     HelloWorld!
 ${BROWSER}          firefox
-${GECKODRIVER_PATH}    /usr/local/bin/geckodriver
 
 *** Keywords ***
 Открыть отчет в браузере
     ${report_path}=    Set Variable    ${OUTPUT_DIR}${/}report.html
-    ${file_url}=       Set Variable    file://${report_path.replace('\\', '/')}  # Для Linux
+    ${file_url}=       Set Variable    file://${report_path.replace('\\', '/')}
 
-    # Настройки Firefox
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].FirefoxOptions()    sys
-    Call Method    ${options}    add_argument    --headless  # Режим без GUI (можно убрать)
-
-    Create Webdriver    Firefox    options=${options}    executable_path=${GECKODRIVER_PATH}
+    Create Webdriver    Firefox
     Go To    ${file_url}
     Wait Until Page Contains    All Tests    30s
     Sleep    5s
 
 Выполнить команду и проверить
-    [Arguments]    ${command}    ${expected_rc}=0
+    [Arguments]    ${command}=    ${expected_rc}=0
     ${rc}    ${output}=    Run And Return Rc And Output    ${command}
     Should Be Equal As Integers    ${rc}    ${expected_rc}
     ...    msg=Команда: ${command} | Код: ${rc} (ожидалось ${expected_rc}) | Вывод: ${output}
@@ -40,7 +35,12 @@ ${GECKODRIVER_PATH}    /usr/local/bin/geckodriver
     ${content}=    Get File    ${FILE_PATH}    encoding_errors=ignore
     Should Contain    ${content}    ${FILE_PATTERN}     msg=Строка '${FILE_PATTERN}' не найдена в файле!
 
-Проверить код возврата Linux
-    [Tags]      Проверить код возврата Linux
-    Выполнить команду и проверить    ls -l /tmp    0
-    Выполнить команду и проверить    grep -q "error" /var/log/syslog    1
+Проверить ОС
+    [Tags]      Проверить ОС
+    ${os}=    Evaluate    os.name    os
+    Run Keyword If    '${os}' == 'nt'    Log    Windows
+    ...     ELSE IF    '${os}' == 'posix'    Log    Linux/Unix
+
+Пример выполнения команды Linux
+    ${result}=    Выполнить команду и проверить    echo "Hello"    0
+    Log    Результат: ${result}

@@ -93,3 +93,70 @@ Status: Fail
 Message: Строка не найдена в файле!
 ```
 <img width="1872" height="210" alt="image" src="https://github.com/user-attachments/assets/68dacda5-6471-45d6-87d8-3596f0470f3a" />
+
+
+## Тест №3 - проверка операционной системы
+
+```
+Проверить ОС
+    [Tags]      Проверить ОС
+    ${os}=    Evaluate    os.name    os
+    Run Keyword If    '${os}' == 'nt'    Log    Windows
+    ...     ELSE IF    '${os}' == 'posix'    Log    Linux/Unix
+```
+
+С помощью ключевого слова `Evaluate` мы можем использовать выражение `os.name` из языка `Python`, чтобы получить значение системной переменной `os`. Значение `nt` - присуще ОС Windows, а `posix` - ОС Linux или Unix. 
+
+`Run Keyword If ... ELSE IF ...` - выражение для проверки условий в `robotframework`.
+
+Пример работы теста:
+<img width="1852" height="194" alt="image" src="https://github.com/user-attachments/assets/502af767-c5cf-4f67-ac3d-14a1f1f52171" />
+
+
+## Тест №4 - проверка выполнения команды Linux
+
+```
+Пример выполнения команды Linux
+    ${result}=    Выполнить команду и проверить    echo "Hello"    0
+    Log    Результат: ${result}
+```
+Здесь мы вызываем функцию `Выполнить команду и проверить`. Аргументы функции:
+1) Функция `echo` с аргументом `"Hello"`
+2) `0` - стандартный вывод выполнения функции в Linux
+
+
+Реализация функции `Выполнить команду и проверить`:
+```
+Выполнить команду и проверить
+    [Arguments]    ${command}=    ${expected_rc}=0
+    ${rc}    ${output}=    Run And Return Rc And Output    ${command}
+    Should Be Equal As Integers    ${rc}    ${expected_rc}
+    ...    msg=Команда: ${command} | Код: ${rc} (ожидалось ${expected_rc}) | Вывод: ${output}
+    [RETURN]    ${output}
+```
+В качестве аргументов `Arguments` выступает команда `command` и ожидаемое значение `expected_rc` - результат выполнения этой команды. `expected_rc` по умолчанию равно `0`.
+С помощью ключевого выражения `Run And Return Rc And Output` мы выполняем команду `command` и записывает возвращенный код и вывод работы функции в переменные `rc` и `output` соответственно.
+Ключевое выражение `Should Be Equal As Integers` сравнивает возвращенный код `rc` с ожидаемым `expected_rc` и возвращает `msg`, если они не равны между собой.
+
+
+Подадим в тест команду `echo "Hello` и ожидаемый код `0`:
+
+<img width="560" height="86" alt="image" src="https://github.com/user-attachments/assets/bbe5f1e1-e1af-4550-b6b4-5a661b7df9f1" />
+
+Мы видим, что в логе вывело:
+
+```
+Результат: Hello
+```
+<img width="1853" height="183" alt="image" src="https://github.com/user-attachments/assets/837e99c1-1a73-4383-9726-a98ca28e6725" />
+
+
+Если же мы подадим в качестве `expected_rc` = `1`, то увидим:
+
+```
+Status: FAIL
+Message: Команда: echo "Hello" | Код: 0 (ожидалось 1) | Вывод: "Hello" : 0 != 1
+```
+
+<img width="1846" height="172" alt="image" src="https://github.com/user-attachments/assets/88c7e555-17a4-4006-bba7-8b0090aca0eb" />
+

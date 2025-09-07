@@ -8,6 +8,7 @@
 Для этого откроем эту папку в терминале:
 
 <img width="1280" height="797" alt="image" src="https://github.com/user-attachments/assets/a582e248-ec5f-4b96-a8db-296573dfc7e7" />
+
 И введем туда данные команды:
 
 1) Создание виртуального окружения "venv":
@@ -26,7 +27,7 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
-Запуск программы
+Запуск программы:
 ```
 robot --outputdir results --log report.html test.robot
 ```
@@ -171,8 +172,10 @@ Message: Строка не найдена в файле!
     [RETURN]    ${output}
 ```
 В качестве аргументов `Arguments` выступает команда `command` и ожидаемое значение `expected_rc` - результат выполнения этой команды. `expected_rc` по умолчанию равно `0`.
+
 С помощью ключевого выражения `Run And Return Rc And Output` мы выполняем команду `command` и записывает возвращенный код и вывод работы функции в переменные `rc` и `output` соответственно.
-Ключевое выражение `Should Be Equal As Integers` сравнивает возвращенный код `rc` с ожидаемым `expected_rc` и возвращает `msg`, если они не равны между собой.
+
+Ключевое выражение `Should Be Equal As Integers` сравнивает возвращенный код `rc` с ожидаемым `expected_rc` и возвращает сообщение `msg`, если они не равны между собой.
 
 </details>
 

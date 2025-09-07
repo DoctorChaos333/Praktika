@@ -7,16 +7,20 @@ Suite Teardown  Открыть отчет в браузере
 ${FILE_PATH}        ${CURDIR}${/}some_file${/}some_script.txt
 ${FILE_PATTERN}     HelloWorld!
 ${BROWSER}          firefox
+${REPORT_PATH}      ${OUTPUT_DIR}${/}report.html
 
 *** Keywords ***
 Открыть отчет в браузере
-    ${report_path}=    Set Variable    ${OUTPUT_DIR}${/}report.html
-    ${file_url}=       Set Variable    file://${report_path.replace('\\', '/')}
+    Wait Until Keyword Succeeds    30s    1s    File Should Exist    ${REPORT_PATH}
 
-    Create Webdriver    Firefox
-    Go To    ${file_url}
-    Wait Until Page Contains    All Tests    30s
-    Sleep    5s
+    ${file_url}=    Set Variable    file://${REPORT_PATH.replace('\\', '/')}
+
+    Run Keyword If    os.path.exists($REPORT_PATH)    Run Keywords
+    ...    Open Browser    ${file_url}    ${BROWSER}    AND
+    ...    Wait Until Page Contains    All Tests    30s    AND
+    ...    Sleep    3s
+    ...    ELSE
+    ...    Log    Отчет не найден: ${REPORT_PATH}
 
 Выполнить команду и проверить
     [Arguments]    ${command}=    ${expected_rc}=0

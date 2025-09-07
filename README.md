@@ -27,6 +27,7 @@ pip install -r requirements.txt
 robot --outputdir results --log report.html test.robot
 ```
 
+
 # Работа с результатами тестов
 
 Вся информация хранится в файлах `report.html` и `log.html`, которые можно открыть в браузере. Пример `log.html`:

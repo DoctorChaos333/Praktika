@@ -24,6 +24,10 @@ source venv/bin/activate
 ```
 *Виртуальное окружение нужно создавать для того, чтобы не забивать корневую папку Python лишними библиотеками, а хранить их в самом проекте.*
 
+Надпись `(venv)` говорит нам о том, что виртуальное окружение активировалось:
+
+<img width="641" height="432" alt="image" src="https://github.com/user-attachments/assets/1514a336-bbb2-4002-b946-845e71e26ee3" />
+
 Теперь установим необходимые зависимости с помощью команды:
 ```
 pip install -r requirements.txt
@@ -67,7 +71,7 @@ ${FILE_PATH}        ${CURDIR}${/}some_file${/}some_script.txt
 
 Если файл существует, то в `log.html` мы увидим результат выполнения теста: 
 ```
-    Status: PASS
+Status: PASS
 ```
 
 <img width="1817" height="120" alt="image" src="https://github.com/user-attachments/assets/59aebfa5-6513-4b0f-849d-8073216a5ef0" />
@@ -107,6 +111,7 @@ Message: Конфигурационный файл не найден
 
 <details>
 <summary>✅ Успех</summary>
+
 Если строка существует, то мы увидим:
 
 ```
@@ -117,6 +122,7 @@ Status: PASS
 
 <details>
 <summary>❌ Провал</summary>
+
 В ином случае:
 
 ```
@@ -145,7 +151,9 @@ Message: Строка не найдена в файле!
 
 <details>
 <summary>✅ Результат</summary>
+
 Пример работы теста:
+
 <img width="1852" height="194" alt="image" src="https://github.com/user-attachments/assets/502af767-c5cf-4f67-ac3d-14a1f1f52171" />
 </details>
 

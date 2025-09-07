@@ -1,7 +1,6 @@
 *** Settings ***
 Library    OperatingSystem
 Library    SeleniumLibrary
-Suite Teardown  Открыть отчет в браузере
 
 *** Variables ***
 ${FILE_PATH}        ${CURDIR}${/}some_file${/}some_script.txt
@@ -10,17 +9,6 @@ ${BROWSER}          firefox
 ${REPORT_PATH}      ${OUTPUT_DIR}${/}report.html
 
 *** Keywords ***
-Открыть отчет в браузере
-    Wait Until Keyword Succeeds    30s    1s    File Should Exist    ${REPORT_PATH}
-
-    ${file_url}=    Set Variable    file://${REPORT_PATH.replace('\\', '/')}
-
-    Run Keyword If    os.path.exists($REPORT_PATH)    Run Keywords
-    ...    Open Browser    ${file_url}    ${BROWSER}    AND
-    ...    Wait Until Page Contains    All Tests    30s    AND
-    ...    Sleep    3s
-    ...    ELSE
-    ...    Log    Отчет не найден: ${REPORT_PATH}
 
 Выполнить команду и проверить
     [Arguments]    ${command}=    ${expected_rc}=0

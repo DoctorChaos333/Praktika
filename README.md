@@ -7,7 +7,8 @@
 Создадим и активируем виртуальное окружение командами. Делать это нужно в директории, где хранится сам файл test.robot.
 Для этого откроем эту папку в терминале:
 
-<img width="1280" height="797" alt="image" src="https://github.com/user-attachments/assets/a582e248-ec5f-4b96-a8db-296573dfc7e7" />
+<img width="1276" height="799" alt="image" src="https://github.com/user-attachments/assets/da21400d-37fa-4051-a8d9-e587c237f7c7" />
+
 
 И введем туда данные команды:
 

@@ -14,3 +14,7 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
+Запуск программы
+```
+robot --outputdir results --log report.html test.robot
+```

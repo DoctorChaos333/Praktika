@@ -42,7 +42,8 @@ robot test.robot
 
 Вся информация хранится в файлах `report.html` и `log.html`, которые можно открыть в браузере. Пример `log.html`:
 
-<img width="1911" height="631" alt="image" src="https://github.com/user-attachments/assets/277c7be8-bea1-490f-ab4a-4a21fe33bbf9" />
+<img width="1284" height="882" alt="image" src="https://github.com/user-attachments/assets/0afb66d7-39d1-46eb-835a-f79a82e2cce0" />
+
 
 
 ## Тест №1 - проверка конфигурационного файла
@@ -74,7 +75,8 @@ ${FILE_PATH}        ${CURDIR}${/}some_file${/}some_script.txt
 Status: PASS
 ```
 
-<img width="1817" height="120" alt="image" src="https://github.com/user-attachments/assets/59aebfa5-6513-4b0f-849d-8073216a5ef0" />
+<img width="1245" height="248" alt="image" src="https://github.com/user-attachments/assets/3f4cb11a-1ecf-448f-b770-72d3e641797b" />
+
     
 </details>
 
@@ -87,7 +89,8 @@ Status: Fail
 Message: Конфигурационный файл не найден
 ```
 
-<img width="1861" height="193" alt="image" src="https://github.com/user-attachments/assets/5e6628ce-006a-4cda-8a46-46d4c7ce9683" />
+<img width="1228" height="220" alt="image" src="https://github.com/user-attachments/assets/af7650f4-c255-4d3b-bce9-b82418c7126b" />
+
 
 </details>
 
@@ -117,7 +120,8 @@ Message: Конфигурационный файл не найден
 ```
 Status: PASS
 ```
-<img width="1872" height="139" alt="image" src="https://github.com/user-attachments/assets/0c32a499-1018-4338-a5d8-040e154babac" />
+<img width="1215" height="158" alt="image" src="https://github.com/user-attachments/assets/bf67bf11-d593-4469-80ac-7ee14187fd01" />
+
 </details>
 
 <details>
@@ -129,7 +133,8 @@ Status: PASS
 Status: Fail
 Message: Строка не найдена в файле!
 ```
-<img width="1872" height="210" alt="image" src="https://github.com/user-attachments/assets/68dacda5-6471-45d6-87d8-3596f0470f3a" />
+<img width="1225" height="254" alt="image" src="https://github.com/user-attachments/assets/d9e199a1-1195-4448-8ceb-8f1f96229f69" />
+
 </details>
 
 ## Тест №3 - проверка операционной системы
@@ -154,7 +159,8 @@ Message: Строка не найдена в файле!
 
 Пример работы теста:
 
-<img width="1852" height="194" alt="image" src="https://github.com/user-attachments/assets/502af767-c5cf-4f67-ac3d-14a1f1f52171" />
+<img width="1224" height="226" alt="image" src="https://github.com/user-attachments/assets/64506915-2421-42f6-9ed5-69e4762dae28" />
+
 </details>
 
 ## Тест №4 - проверка выполнения команды Linux
@@ -193,14 +199,14 @@ Message: Строка не найдена в файле!
 
 Подадим в тест команду `echo "Hello` и ожидаемый код `0`:
 
-<img width="560" height="86" alt="image" src="https://github.com/user-attachments/assets/bbe5f1e1-e1af-4550-b6b4-5a661b7df9f1" />
 
 Мы видим, что в логе вывело:
 
 ```
 Результат: Hello
 ```
-<img width="1853" height="183" alt="image" src="https://github.com/user-attachments/assets/837e99c1-1a73-4383-9726-a98ca28e6725" />
+
+<img width="1223" height="220" alt="image" src="https://github.com/user-attachments/assets/42ccdfc6-13cd-4811-b100-a86d3b818107" />
 </details>
 
 <details>
@@ -213,5 +219,6 @@ Status: FAIL
 Message: Команда: echo "Hello" | Код: 0 (ожидалось 1) | Вывод: "Hello" : 0 != 1
 ```
 
-<img width="1846" height="172" alt="image" src="https://github.com/user-attachments/assets/88c7e555-17a4-4006-bba7-8b0090aca0eb" />
+<img width="1218" height="406" alt="image" src="https://github.com/user-attachments/assets/eb0ae6fe-fc48-4aa0-9fab-6ad370dfcafe" />
+
 </details>

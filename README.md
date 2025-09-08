@@ -34,7 +34,7 @@ pip install -r requirements.txt
 ```
 Запуск программы:
 ```
-robot --outputdir results --log report.html test.robot
+robot test.robot
 ```
 
 

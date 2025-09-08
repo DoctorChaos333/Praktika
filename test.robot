@@ -34,5 +34,6 @@ ${REPORT_PATH}      ${OUTPUT_DIR}${/}report.html
     ...     ELSE IF    '${os}' == 'posix'    Log    Linux/Unix
 
 Пример выполнения команды Linux
+    [Tags]      Пример выполнения команды Linux
     ${result}=    Выполнить команду и проверить    echo "Hello"    0
     Log    Результат: ${result}
